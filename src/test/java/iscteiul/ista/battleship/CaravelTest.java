@@ -27,7 +27,7 @@ class CaravelTest {
         Caravel caravel = new Caravel(Compass.NORTH, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(4, 5)
+                new Position(6, 5)
         );
         assertTrue(caravel.getPositions().containsAll(expected) && expected.containsAll(caravel.getPositions()));
     }
@@ -60,7 +60,7 @@ class CaravelTest {
         Caravel caravel = new Caravel(Compass.WEST, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(5, 4)
+                new Position(5, 6)
         );
         assertTrue(caravel.getPositions().containsAll(expected) && expected.containsAll(caravel.getPositions()));
     }

@@ -28,8 +28,8 @@ class CarrackTest {
         carrack = new Carrack(Compass.NORTH, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(4, 5),
-                new Position(3, 5)
+                new Position(6, 5),
+                new Position(7, 5)
         );
         assertTrue(carrack.getPositions().containsAll(expected) && expected.containsAll(carrack.getPositions()));
     }
@@ -64,8 +64,8 @@ class CarrackTest {
         carrack = new Carrack(Compass.WEST, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(5, 4),
-                new Position(5, 3)
+                new Position(5, 6),
+                new Position(5, 7)
         );
         assertTrue(carrack.getPositions().containsAll(expected) && expected.containsAll(carrack.getPositions()));
     }

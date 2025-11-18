@@ -28,9 +28,9 @@ class FrigateTest {
         frigate = new Frigate(Compass.NORTH, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(4, 5),
-                new Position(3, 5),
-                new Position(2, 5)
+                new Position(6, 5),
+                new Position(7, 5),
+                new Position(8, 5)
         );
         assertTrue(frigate.getPositions().containsAll(expected) && expected.containsAll(frigate.getPositions()));
     }
@@ -67,9 +67,9 @@ class FrigateTest {
         frigate = new Frigate(Compass.WEST, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(5, 4),
-                new Position(5, 3),
-                new Position(5, 2)
+                new Position(5, 6),
+                new Position(5, 7),
+                new Position(5, 8)
         );
         assertTrue(frigate.getPositions().containsAll(expected) && expected.containsAll(frigate.getPositions()));
     }

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 /**
- * Unit tests for the Galleon class (Size 5), part of the S3 Ship Test Case.
+ * Unit tests for the Galleon class (Size 5), testing its irregular T-shape positioning logic.
  */
 @DisplayName("C7 Galleon Test (Size 5)")
 class GalleonTest {
@@ -28,10 +28,10 @@ class GalleonTest {
         galleon = new Galleon(Compass.NORTH, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(4, 5),
-                new Position(3, 5),
-                new Position(2, 5),
-                new Position(1, 5)
+                new Position(5, 6),
+                new Position(5, 7),
+                new Position(6, 6),
+                new Position(7, 6)
         );
         assertTrue(galleon.getPositions().containsAll(expected) && expected.containsAll(galleon.getPositions()));
     }
@@ -43,9 +43,9 @@ class GalleonTest {
         List<IPosition> expected = List.of(
                 new Position(5, 5),
                 new Position(6, 5),
+                new Position(7, 4),
                 new Position(7, 5),
-                new Position(8, 5),
-                new Position(9, 5)
+                new Position(7, 6)
         );
         assertTrue(galleon.getPositions().containsAll(expected) && expected.containsAll(galleon.getPositions()));
     }
@@ -56,10 +56,10 @@ class GalleonTest {
         galleon = new Galleon(Compass.EAST, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(5, 6),
-                new Position(5, 7),
-                new Position(5, 8),
-                new Position(5, 9)
+                new Position(6, 3),
+                new Position(6, 4),
+                new Position(6, 5),
+                new Position(7, 5)
         );
         assertTrue(galleon.getPositions().containsAll(expected) && expected.containsAll(galleon.getPositions()));
     }
@@ -70,10 +70,10 @@ class GalleonTest {
         galleon = new Galleon(Compass.WEST, START_POS);
         List<IPosition> expected = List.of(
                 new Position(5, 5),
-                new Position(5, 4),
-                new Position(5, 3),
-                new Position(5, 2),
-                new Position(5, 1)
+                new Position(6, 5),
+                new Position(6, 6),
+                new Position(6, 7),
+                new Position(7, 5)
         );
         assertTrue(galleon.getPositions().containsAll(expected) && expected.containsAll(galleon.getPositions()));
     }
