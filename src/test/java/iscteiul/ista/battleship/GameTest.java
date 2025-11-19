@@ -49,6 +49,19 @@ class GameTest {
             assertEquals(1, game.getInvalidShots());
         }
 
+        // cobre os limites que faltavam do validShot()
+        @Test
+        @DisplayName("testa limites do tabuleiro: col < 0, col > max, row > max")
+        void fireInvalidBoundaries() {
+            int max = Fleet.BOARD_SIZE;
+
+            game.fire(new Position(0, -1));        // col < 0
+            game.fire(new Position(0, max + 1));   // col > max
+            game.fire(new Position(max + 1, 0));   // row > max
+
+            assertEquals(3, game.getInvalidShots(), "Os três tiros inválidos devem ser contabilizados");
+        }
+
         @Test
         @DisplayName("tiro repetido incrementa contador de repeatedShots")
         void fireRepeatedShot() {
@@ -85,6 +98,17 @@ class GameTest {
 
             assertNotNull(sunk);
             assertEquals(1, game.getSunkShips());
+        }
+
+        @Test
+        @DisplayName("loop de repeatedShot percorre posições sem encontrar repetidos")
+        void repeatedShotLoopNoMatch() {
+            game.fire(p00);
+            game.fire(p01);
+
+            // tiro passa no loop mas não encontra match
+            game.fire(new Position(5, 5));
+            assertEquals(0, game.getRepeatedShots(), "não deve contar tiro repetido quando não existe um match");
         }
     }
 
@@ -164,6 +188,12 @@ class GameTest {
             pos.add(p00);
 
             assertDoesNotThrow(() -> game.printBoard(pos, 'X'));
+        }
+
+        @Test
+        @DisplayName("deve funcionar mesmo com lista vazia")
+        void printBoardEmpty() {
+            assertDoesNotThrow(() -> game.printBoard(new ArrayList<>(), 'X'));
         }
 
         @Test
