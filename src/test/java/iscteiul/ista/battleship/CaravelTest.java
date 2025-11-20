@@ -64,4 +64,16 @@ class CaravelTest {
         );
         assertTrue(caravel.getPositions().containsAll(expected) && expected.containsAll(caravel.getPositions()));
     }
+
+    @Test
+    @DisplayName("Caravel: Null Bearing Check")
+    void testNullBearing() {
+        assertThrows(AssertionError.class, () -> new Caravel(null, START_POS));
+    }
+
+    @Test
+    @DisplayName("Caravel: Unhandled Bearing Check (Default Branch)")
+    void testUnhandledBearing() {
+        assertThrows(IllegalArgumentException.class, () -> new Caravel(Compass.UNKNOWN, START_POS));
+    }
 }
